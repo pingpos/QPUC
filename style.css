@@ -1,0 +1,18 @@
+#question {
+	width: 70%;
+	height: 50px;
+	margin-left: 15%;
+	margin-top: 175px;
+	border-color: white;
+	border-width: 1px;
+}
+
+.elemStyle {
+	background-color: orange;
+	border-radius: 15px;
+}
+
+.reponse {
+	height: 50px;
+	
+}
