@@ -1,28 +1,52 @@
-<html>
+<html ng-app="qpucApp">
 	<head>
 		<meta charset="UTF-8">		
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" type="text/css" href="bootstrap-4.2.1-dist/css/bootstrap.css"/>
 
 		<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.js"></script>
+
+		<!-- Firebase -->
+		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+		<script src="app.js"></script>
 	</head>
-	<body style='background-image:linear-gradient(blue, #9999ff);width:100%;height:100%; text-align: center;'>
+	<body ng-controller="mainCtrl" style='background-image:linear-gradient(blue, #9999ff);width:100%;height:100%; text-align: center;'>
 		<header style="position: absolute; top:0; width:100%;"><img src="logoqpuc.png" style="display:inline-block; margin:0 auto;height: 155px;"/></header>
 		<div id="content" class="row">
 			<div id="question" class="elemStyle"></div>
+			<div>
+			    <ul>
+			      <li ng-repeat="message in messages">
+			        <!-- edit a message -->
+			        <input ng-model="message.text" ng-change="messages.$save(message)" />
+			        <!-- delete a message -->
+			        <button ng-click="messages.$remove(message)">Delete Message</button>
+			      </li>
+			    </ul>
+			    <!-- push a new message onto the array -->
+			    <form ng-submit="addMessage()">
+			      <input ng-model="newMessageText" />
+			      <button type="submit">Add Message</button>
+			    </form>
+			</div>
 			<div id="propositions" class="col-md-12" style="margin-top:30px;">
 				<div class="row">
 					<div id="ligne1" class="ligne col-md-12">
 						<div id="reponse1" class="reponse elemStyle">
 							<div class="repContent">
-								<span class="repText">A</span>
-								<span class="repText">Test</span>
+								<input type="text" ng-model="data.text"/>
+								<h1>You said: {{ data.text }}</h1>
+								<span class="repContentStyle">A</span>
+								<span  class="repContentStyle repText"></span>
 							</div>
 						</div>
 						<div id="reponse2" class="reponse elemStyle">
 							<div class="repContent">
-								<span class="repText">B</span>
+								<span class="repContentStyle">B</span>
 							</div>
 						</div>
 					</div>
@@ -30,12 +54,12 @@
 					<div id="ligne2" class="ligne col-md-12">
 						<div id="reponse1" class="reponse elemStyle">
 							<div class="repContent">
-								<span class="repText">C</span>
+								<span class="repContentStyle">C</span>
 							</div>
 						</div>
 						<div id="reponse2" class="reponse elemStyle">
 							<div class="repContent">
-								<span class="repText">D</span>
+								<span class="repContentStyle">D</span>
 							</div>
 						</div>
 					</div>

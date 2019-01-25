@@ -13,17 +13,30 @@
 }
 
 .reponse {
+<<<<<<< HEAD
+	height: 50px;
+	width: 80%;
+	margin-left: 10%;
+	display: flex;
+}
+
+.txtReponse {
+	margin-left: 30px;
+}
+
+#ligne2 {
+	margin-top: 30px;
+=======
 	height: 80px;
 	margin-left: 30px;	
     width: 42%;
 }
 
-.repText{
-	width: 70%;
-    word-wrap: break-word;
+.repContent{
+
 }
 
-.repContentStyle{
+.repText{
 	display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,4 +50,5 @@
 	margin-top: 20px; 
 	display: flex;
     justify-content: space-around;
+>>>>>>> 65359a49c49995153db993e86226c3377cc4055c
 }
