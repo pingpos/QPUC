@@ -18,12 +18,11 @@
     width: 42%;
 }
 
-.repText{
-	width: 70%;
-    word-wrap: break-word;
+.repContent{
+
 }
 
-.repContentStyle{
+.repText{
 	display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,0 +1,28 @@
+#question {
+	width: 70%;
+	height: 50px;
+	margin-left: 15%;
+	margin-top: 175px;
+	border-color: white;
+	border-width: 1px;
+}
+
+.elemStyle {
+	background-color: orange;
+	border-radius: 15px;
+}
+
+.reponse {
+	height: 50px;
+	width: 80%;
+	margin-left: 10%;
+	display: flex;
+}
+
+.txtReponse {
+	margin-left: 30px;
+}
+
+#ligne2 {
+	margin-top: 30px;
+}
