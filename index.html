@@ -12,60 +12,75 @@
 		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 		<!-- AngularFire -->
 		<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-		<script src="app.js"></script>
+		
 	</head>
 	<body ng-controller="mainCtrl" style='background-image:linear-gradient(blue, #9999ff);width:100%;height:100%; text-align: center;'>
 		<header style="position: absolute; top:0; width:100%;"><img src="logoqpuc.png" style="display:inline-block; margin:0 auto;height: 155px;"/></header>
 		<div id="content" class="row">
-			<div id="question" class="elemStyle"></div>
-			<div>
-			    <ul>
-			      <li ng-repeat="message in messages">
-			        <!-- edit a message -->
-			        <input ng-model="message.text" ng-change="messages.$save(message)" />
-			        <!-- delete a message -->
-			        <button ng-click="messages.$remove(message)">Delete Message</button>
-			      </li>
-			    </ul>
-			    <!-- push a new message onto the array -->
-			    <form ng-submit="addMessage()">
-			      <input ng-model="newMessageText" />
-			      <button type="submit">Add Message</button>
-			    </form>
+			<div id="question" class="elemStyle" ng-show="numManche == 1">{{ questionCourrante.question }}</div>						
+			<div id="question" class="elemStyle" ng-show="numManche == 2">
+				<img src="Images/play.png" ng-click="toggleMusic()"/>
+			</div>						
+
+			<div class="elemStyle reponse" style="margin-top:30px; margin-left: 25%; width: 50%; height: 150px; font-size: 75px" ng-if="questionCourrante.reponses.length == 1">
+				<div id="reponseUnique" >
+					<div class="repContent">
+						<span id="txtRepUnique" class="repContentStyle repText" ng-show="showRepUnique">{{questionCourrante.reponses[0]}}</span>
+					</div>
+				</div>		
 			</div>
-			<div id="propositions" class="col-md-12" style="margin-top:30px;">
+			<div ng-if="questionCourrante.reponses.length > 1" id="propositions" class="col-md-12" style="margin-top:30px;">
 				<div class="row">
 					<div id="ligne1" class="ligne col-md-12">
 						<div id="reponse1" class="reponse elemStyle">
 							<div class="repContent">
-								<input type="text" ng-model="data.text"/>
-								<h1>You said: {{ data.text }}</h1>
 								<span class="repContentStyle">A</span>
-								<span  class="repContentStyle repText"></span>
+								<span id="txtRep1" class="repContentStyle repText">{{ questionCourrante.reponses[0] }}</span>
 							</div>
 						</div>
 						<div id="reponse2" class="reponse elemStyle">
 							<div class="repContent">
 								<span class="repContentStyle">B</span>
+								<span id="txtRep2" class="repContentStyle repText">{{questionCourrante.reponses[1]}}</span>
 							</div>
 						</div>
 					</div>
 
 					<div id="ligne2" class="ligne col-md-12">
-						<div id="reponse1" class="reponse elemStyle">
+						<div id="reponse3" class="reponse elemStyle">
 							<div class="repContent">
 								<span class="repContentStyle">C</span>
+								<span id="txtRep3" class="repContentStyle repText">{{questionCourrante.reponses[2]}}</span>
 							</div>
 						</div>
-						<div id="reponse2" class="reponse elemStyle">
+						<div id="reponse4" class="reponse elemStyle">
 							<div class="repContent">
 								<span class="repContentStyle">D</span>
+								<span id="txtRep4" class="repContentStyle repText">{{questionCourrante.reponses[3]}}</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+			<button id="btnSuivant" ng-click="questionSuivante()" class="elemStyle">Suivante</button>
+			<button id="btnRep" ng-click="showRep()" class="elemStyle">Réponse</button>
+			<button id="btnPrec" ng-click="questionPrecedente()" class="elemStyle">Précédente</button>
 		</div>
 	</body>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript">
+		function suivant(){
+			$("#btnSuivant").click();
+		}
+
+		function prec(){
+			$("#btnPrec").click();
+		}
+
+		function rep(){
+			$("#btnRep").click();
+		}
+
+	</script>
+	<script src="app.js"></script>
 </html>

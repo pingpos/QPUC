@@ -1,10 +1,14 @@
 #question {
 	width: 70%;
-	height: 50px;
+	height: 180px;
 	margin-left: 15%;
 	margin-top: 175px;
 	border-color: white;
 	border-width: 1px;
+
+    font-stretch: condensed;
+    font-size: 50px; 
+    font-weight: bold;
 }
 
 .elemStyle {
@@ -13,7 +17,7 @@
 }
 
 .reponse {
-	height: 80px;
+	height: 150px;
 	margin-left: 30px;	
     width: 42%;
 }
@@ -21,6 +25,9 @@
 .repText{
 	width: 70%;
     word-wrap: break-word;
+    font-stretch: condensed;
+    font-size: 50px; 
+    font-weight: bold;
 }
 
 .repContentStyle{
@@ -31,10 +38,37 @@
     margin: auto 25px;
     vertical-align: middle;
     height: 100%;
+    font-size: 40px; 
+}
+
+#reponseUnique {
+	height: 50px;
+}
+
+#txtRepUnique{
+	width: 90%;
+	height: 150px;
 }
 
 .ligne{
 	margin-top: 20px; 
 	display: flex;
     justify-content: space-around;
+}
+
+#btnSuivant, #btnPrec, #btnRep { 
+    position: absolute;
+    bottom: 5px;
+    height: 35px;
+    right: 10px;
+    border-radius: 0;
+    visibility: hidden;
+ }
+
+ #btnPrec {
+ 	right: 160px;
+ }
+
+#btnRep {
+	right: 85px;
 }
