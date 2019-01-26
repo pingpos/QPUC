@@ -1,4 +1,4 @@
-    var app = angular.module("qpucApp", ["firebase"]);
+    var app = angular.module("qpucApp");
 
     app.controller("mainCtrl", function($scope) {
       var idxQuestionCourrante = 0; 
